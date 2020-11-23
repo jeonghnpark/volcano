@@ -89,4 +89,21 @@ fig4.show()
 
 
 check=pd.read_csv('/media/jeonghn/C684587984586E45/data/train/1002275321.csv')
-check
+check.columns
+check['sensor_1']
+fig=px.line(check['sensor_1'],y='sensor_1')
+fig.show()
+fig_hist=px.histogram(check['sensor_1'], x='sensor_1',nbins=100)
+fig_hist.show()
+fig=px.histogram(check['sensor_1'],)
+
+fig=make_subplots(rows=5, cols=2)
+traces=[go.Histogram(x=check[col], nbinsx=100, name=col) for col in check.columns]
+for i in range(len(traces)):
+    fig.append_trace(traces[i],(i//2)+1, (i%2)+1)
+fig.update_layout(
+    title_text='Data from sensors distribution',
+    height=800,
+    width=1200
+)
+fig.show()
