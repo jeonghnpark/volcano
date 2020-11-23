@@ -88,6 +88,7 @@ fig4.show()
 
 
 
+
 check=pd.read_csv('/media/jeonghn/C684587984586E45/data/train/1002275321.csv')
 check.columns
 check['sensor_1']
