@@ -34,3 +34,4 @@ ax1.set_ylabel('Damped oscillation')
 ax2.set_ylabel('Undamped')
 plt.show()
 
+
