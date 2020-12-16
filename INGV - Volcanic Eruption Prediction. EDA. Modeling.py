@@ -6,7 +6,9 @@ import lifelines
 import os
 import plotly.express as px
 
-train = pd.read_csv('train.csv')
+DATAPATH='/media/jeonghn/C684587984586E45'
+
+train = pd.read_csv(DATAPATH+'/data/train.csv')
 
 fig = px.histogram(train, x='time_to_eruption', nbins=200)
 fig.show()
@@ -17,7 +19,7 @@ train.describe()
 
 print("median", train['time_to_eruption'].median())
 print("skew", train['time_to_eruption'].skew())
-sample_submission = pd.read_csv('sample_submission.csv')
+sample_submission = pd.read_csv(DATAPATH+'/data/sample_submission.csv')
 sample_submission.head()
 train.head()
 train.info()
@@ -26,8 +28,8 @@ sample_submission.info()
 fig = px.line(sample_submission, y='time_to_eruption')
 fig.show()
 
-train_frag = glob.glob("train/*")  # return LIST of string of file path
-test_frag = glob.glob("test/*")
+train_frag = glob.glob(DATAPATH+"/data/train/*")  # return LIST of string of file path
+test_frag = glob.glob(DATAPATH+"/data/test/*")
 
 check = pd.read_csv(train_frag[0])
 
