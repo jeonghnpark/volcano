@@ -11,13 +11,15 @@ num_bins=50
 fig, (ax, ax2)=plt.subplots(1,2)
 
 n,bins,patches=ax.hist(x,num_bins, density=True)
-n,bins,patches=ax2.hist(x,num_bins, density=False)
+n2,bins2,patches2=ax2.hist(x,num_bins, density=False)
 
 y = ((1 / (np.sqrt(2 * np.pi) * sigma)) *
      np.exp(-0.5 * (1 / sigma * (bins - mu))**2))
+y2 = ((1 / (np.sqrt(2 * np.pi) * sigma)) *
+     np.exp(-0.5 * (1 / sigma * (bins2 - mu))**2))
 
 ax.plot(bins,y,'--')
-ax2.plot(bins,y,'--')
+ax2.plot(bins2,y2,'--')
 
 
 plt.show()
